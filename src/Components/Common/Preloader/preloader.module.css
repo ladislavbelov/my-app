@@ -1,0 +1,5 @@
+.preloader {
+    position: absolute;
+    transform: translate(0, -50%);
+    top: 50%;
+}

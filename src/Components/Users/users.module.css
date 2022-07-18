@@ -1,0 +1,16 @@
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.selectedPage {
+    font-weight: bold;
+}
+.pagintaionContainer span {
+    cursor: pointer;
+}
+.preloaderContainer {
+    position: absolute;
+    transform: translate(0, -50%);
+    top: 50%;
+}
