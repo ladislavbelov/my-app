@@ -1,0 +1,25 @@
+.container {
+    width: 30%;
+}
+a {
+    color: cornsilk;
+    text-decoration: none;
+    width: auto;
+    display: block;
+    background-color: green;
+    padding: 5px;
+}
+.nav_item {
+
+}
+
+.active {
+    background-color: tomato;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+}
+
+

@@ -6,8 +6,7 @@ const ProfileInfo = (props) => {
 
     if (!props.profile) {
         return <Preloader/ >
-    }
-
+            }
 
     return (
         <div>
@@ -18,7 +17,8 @@ const ProfileInfo = (props) => {
                 <div className={s.card_avatar}><img src={props.profile.photos.large} alt="" /></div>
                 <div className={s.card_info}>
                     <div className={s.aboutme}>
-                        <b>About me: </b>{props.profile.aboutMe}
+                        <p><b>My name: </b>{props.profile.fullName} </p>
+                        <p> <b>About me: </b>{props.profile.aboutMe} </p>
                         <div className={s.contacts}>
                             <a href={props.profile.contacts.vk}>Vkontakte</a>
                             <a href={props.profile.contacts.twitter}>Twitter</a>
@@ -31,8 +31,8 @@ const ProfileInfo = (props) => {
                 </div>
             </div>
         </div>
-)
-}
+    );
+};
 
 
 export default ProfileInfo;

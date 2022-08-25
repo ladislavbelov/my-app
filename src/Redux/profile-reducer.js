@@ -1,6 +1,6 @@
-const  ADD_POST = 'ADD-POST';
-const UPDNEWPOSTTEXT = 'UPD-NEW-POST-TEXT';
-const SETUSERPROFILE = 'SET-USER-PROFILE';
+const  ADD_POST = 'ADD_POST';
+const UPD_NEW_POST_TEXT = 'UPD_NEW_POST_TEXT';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
     postList: [
@@ -23,13 +23,13 @@ const profileReducer = (state = initialState, action) => {
                 postList : [...state.postList, {id: 4, message: body, likes: 0}]
             }
 
-        case UPDNEWPOSTTEXT:
+        case UPD_NEW_POST_TEXT:
             return {
                 ...state,
                 newPost : action.newText
             }
 
-        case SETUSERPROFILE:
+        case SET_USER_PROFILE:
             return {
                 ...state, profile: action.profile
             }
@@ -39,11 +39,11 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({ type: 'ADD-POST'} )
-export const setUserProfile = (profile) => ({ type: 'SET-USER-PROFILE', profile} )
+export const addPostActionCreator = () => ({ type: 'ADD_POST'} )
+export const setUserProfile = (profile) => ({ type: 'SET_USER_PROFILE', profile} )
 export const updNEwPostActionCreator = (text) => {
     return {
-        type: 'UPD-NEW-POST-TEXT',
+        type: 'UPD_NEW_POST_TEXT',
         newText : text
     }
 }
