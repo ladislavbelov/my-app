@@ -12,6 +12,9 @@ export const usersAPI = {
         return  instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => { return response.data;
         })
     },
+    getUSerStatus(userId){
+        return instance.get(`profile/status/${userId}`)
+    },
     getUserProfile(userId) {
         return instance.get(`profile/${userId}`)
     },
