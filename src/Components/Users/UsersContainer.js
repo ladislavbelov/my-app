@@ -6,6 +6,7 @@ import {
 } from "../../Redux/users-reducer";
 import Users from "./Users";
 import Preloader from "../Common/Preloader/Preloader";
+import {compose} from "redux";
 
 
 
@@ -47,6 +48,9 @@ let mapStateToProps = (state) => {
     }
 }
 
+export default compose (
+    connect(mapStateToProps, {follow, unfollow, toggleFollowingProgress, getUsers})
+)(UsersContainer)
 
-export default connect(mapStateToProps,
-    {follow, unfollow, toggleFollowingProgress, getUsers})(UsersContainer);
+// export default connect(mapStateToProps,
+//     {follow, unfollow, toggleFollowingProgress, getUsers})(UsersContainer);

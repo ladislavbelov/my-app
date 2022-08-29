@@ -12,13 +12,12 @@ export const usersAPI = {
         return  instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => { return response.data;
         })
     },
-    // follow(userId) {
-    //     return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
-    // },
-    // unfollow(userId) {
-    //     return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
-    // },
-    // bad request , хз почему
+    getUserProfile(userId) {
+        return instance.get(`profile/${userId}`)
+    },
+    isAuth () {
+        return  instance.get(`auth/me`)
+    },
     follow(userId) {
        return  axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {}, {
             withCredentials: true,
@@ -39,6 +38,14 @@ export const usersAPI = {
     }
 }
 
+
+// follow(userId) {
+//     return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+// },
+// unfollow(userId) {
+//     return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+// },
+// bad request , хз почему
 
 //
 // Данные хранятся в централизованном хранилище store.

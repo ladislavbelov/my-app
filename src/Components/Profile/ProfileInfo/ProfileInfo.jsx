@@ -1,6 +1,7 @@
 import React from 'react';
 import s from "../Profile.module.css";
 import Preloader from "../../Common/Preloader/Preloader";
+import defaultUserPhoto from "../../../Assets/Images/user.png";
 
 const ProfileInfo = (props) => {
 
@@ -14,7 +15,9 @@ const ProfileInfo = (props) => {
                 <img src="https://litetrax.com/wp-content/uploads/2016/09/Wellhouse-Cabin.jpg" alt="" />
             </div>
             <div className={s.card_header}>
-                <div className={s.card_avatar}><img src={props.profile.photos.large} alt="" /></div>
+                <div className={s.card_avatar}>
+                    <img className={s.avatar} src={props.profile.photos.large ? props.profile.photos.large : defaultUserPhoto} alt=""/>
+                </div>
                 <div className={s.card_info}>
                     <div className={s.aboutme}>
                         <p><b>My name: </b>{props.profile.fullName} </p>
@@ -31,8 +34,9 @@ const ProfileInfo = (props) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
+
 
 
 export default ProfileInfo;
