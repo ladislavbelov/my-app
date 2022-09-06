@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import PostItem from './PostItem/PostItem';
 import styles from './PostList.module.css';
+import MyFormikTextareaField from "../../MessageForm/MessageForm";
 
 const Postlist = (props) => {
 
@@ -10,24 +11,13 @@ const Postlist = (props) => {
 
     let myRef = useRef();
 
-    let addMessage = () => {
-        props.addMessage();
+    let addMessage = (text) => {
+        props.addMessage(text);
     };
-
-    let onPostChange = () => {
-        let text= myRef.current.value;
-        props.onPostChange(text);
-    }
 
     return (
         <div className={styles.container}>
-            <div className={styles.card_add}>New post<textarea
-                onChange={ onPostChange }
-                value={state.newPost}
-                ref={myRef}
-                name="" id="" cols="30" rows="10"></textarea>
-            <button onClick={ addMessage } >Push me!</button>
-            </div>
+            <MyFormikTextareaField onMessageAdd={addMessage} />
             <div className={styles.card_posts}>
                 <h2>All posts</h2>
                 {postlistshow}

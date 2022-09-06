@@ -10,8 +10,10 @@ export default function ContactForm(props) {
         initialValues: {
             message: ""
         },
-        onSubmit(values) {
-            props.onMessageAdd(values.message)
+        onSubmit(values, { resetForm }) {
+            props.onMessageAdd(values.message);
+            // console.log(values.message);
+            resetForm();
         },
     })
 

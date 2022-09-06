@@ -1,7 +1,7 @@
-import {addPostActionCreator, updNEwPostActionCreator} from "../../../Redux/profile-reducer";
+import React from 'react';
+import {addPostActionCreator} from "../../../Redux/profile-reducer";
 import Postlist from "./Postlist";
 import {connect} from "react-redux";
-
 
 let mapStateToProps = (state) => {
     return {
@@ -10,8 +10,7 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        addMessage : ()  => {dispatch(addPostActionCreator())},
-        onPostChange : (text) =>  {dispatch(updNEwPostActionCreator(text))}
+        addMessage : (post)  => {dispatch(addPostActionCreator(post))}
     }
 }
 const PostlistContainer = connect(mapStateToProps, mapDispatchToProps)(Postlist);
