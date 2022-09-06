@@ -1,5 +1,6 @@
 const UPD_NEW_MESSAGE_BODY = 'UPD_NEW_MESSAGE_BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE';
+const ADD_MESSAGE = 'ADD_MESSAGE';
 
 let initialState = {
     dialogs: [
@@ -37,12 +38,21 @@ const dialogsReducer = (state = initialState, action) => {
                 messagesData : [...state.messagesData, {id: 6, message: body}],
                 newMessageBody : ''
             };
-
+        case ADD_MESSAGE:
+            let newmessage = action.newmessage;
+            return  {
+                ...state,
+                messagesData : [...state.messagesData, {id: 6, message: newmessage}],
+            };
         default:
             return state;
     }
 }
 export const addMessage = () => ({ type: 'SEND_MESSAGE'})
 export const onDialogsChange = (body) => { return { type: 'UPD_NEW_MESSAGE_BODY', body : body } }
+
+export const onMessageAdd = (newmessage) => { return { type: 'ADD_MESSAGE', newmessage : newmessage } }
+
+
 
 export default dialogsReducer;

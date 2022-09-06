@@ -4,8 +4,8 @@ import {applyMiddleware, combineReducers, legacy_createStore as createStore} fro
 import usersReducer from "./users-reducer";
 import newsReducer from "./news-reducer";
 import authReducer from "./auth-reducer";
-import thunk from "redux-thunk";
 import thunkMiddleware from "redux-thunk";
+
 
 
 let reducers = combineReducers({

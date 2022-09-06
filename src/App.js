@@ -10,6 +10,9 @@ import NewsContainer from "./Components/News/NewsContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import Login from "./Components/Login/Login";
+import FormikPage from "./Components/FormikPage/FormikPage";
+
+
 
 
 function App(props) {
@@ -27,6 +30,7 @@ function App(props) {
                         <Route path='/music' element={<Music/>} />
                         <Route path='/settings' element={<Settings/>} />
                         <Route path='/login' element={<Login/>} />
+                        {/*<Route path='/formik' element={<FormikPage />} />*/}
                     </Routes>
                 </div>
             </>

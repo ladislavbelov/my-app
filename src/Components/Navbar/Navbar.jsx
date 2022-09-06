@@ -13,6 +13,7 @@ const Navbar = () => {
                 <li className={styles.nav_item}><NavLink className = { navData => navData.isActive ? styles.active : styles.item } to='/news'>News</NavLink></li>
                 <li className={styles.nav_item}><NavLink className = { navData => navData.isActive ? styles.active : styles.item } to='/music'>Music</NavLink></li>
                 <li className={styles.nav_item}><NavLink className = { navData => navData.isActive ? styles.active : styles.item } to='/settings'>Settings</NavLink></li>
+                <li className={styles.nav_item}><NavLink className = { navData => navData.isActive ? styles.active : styles.item } to='/formik'>Formik</NavLink></li>
             </ul>
         </div>
     );

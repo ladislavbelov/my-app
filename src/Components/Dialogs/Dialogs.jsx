@@ -2,7 +2,11 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import Message from './Message/Message';
 import User from './User/User';
-import { Navigate } from "react-router-dom";
+import MessageForm from "../MessageForm/MessageForm";
+import MyFormikTextareaField from "../MessageForm/MessageForm";
+import {onMessageAdd} from "../../Redux/dialogs-reducer";
+
+
 
 
 const Dialogs = (props) => {
@@ -15,12 +19,18 @@ const Dialogs = (props) => {
 
     let addMessage = () => {
         props.addMessage();
+        console.log(state.newMessageBody)
     };
 
     let onDialogsChange = (e) => {
         let body = e.target.value;
         props.onDialogsChange(body);
+    };
+    let onMessageAdd = (message) => {
+        props.onMessageAdd(message);
+
     }
+
 
 
     return (
@@ -37,6 +47,7 @@ const Dialogs = (props) => {
                 name="" id="" cols="30" rows="10"></textarea>
                 <button onClick={addMessage}>Send message</button>
             </div>
+            <MyFormikTextareaField onMessageAdd={onMessageAdd} />
         </div>
     )
 }

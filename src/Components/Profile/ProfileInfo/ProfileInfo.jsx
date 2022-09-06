@@ -10,7 +10,6 @@ const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader/ >
             }
-
     return (
 
         <div>
@@ -23,7 +22,7 @@ const ProfileInfo = (props) => {
                 </div>
                 <div className={s.card_info}>
                     <div className={s.aboutme}>
-                        <b>Status:</b>{<Profilestatus status={props.status} />}
+                        <b>Status:</b>{<Profilestatus status={props.status} updateUserStatus={props.updateUserStatus} />}
                         <p><b>My name: </b>{props.profile.fullName} </p>
                         <p><b>About me: </b>{props.profile.aboutMe} </p>
                         <div className={s.contacts}>

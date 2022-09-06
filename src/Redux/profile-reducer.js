@@ -1,4 +1,4 @@
-import {usersAPI} from "../api/api";
+import {profileAPI, usersAPI} from "../api/api";
 
 const  ADD_POST = 'ADD_POST';
 const UPD_NEW_POST_TEXT = 'UPD_NEW_POST_TEXT';
@@ -64,15 +64,24 @@ export const updNEwPostActionCreator = (text) => {
 
 export const getUserStatus = (userId) => {
     return (dispatch) => {
-        usersAPI.getUSerStatus(userId)
+        profileAPI.getUSerStatus(userId)
             .then(response => {
                 dispatch(setUserStatus(response.data))
             });
     }
 }
+export const updateUserStatus = (status) => {
+    return (dispatch) => {
+        profileAPI.updateUserStatus(status)
+            .then(response => {
+                if (response.data.resultCode === 0 ) {
+                    dispatch(setUserStatus(status))
+                }});
+    }
+}
 export const getUserProfile = (userId) => {
     return (dispatch) => {
-        usersAPI.getUserProfile(userId)
+        profileAPI.getUserProfile(userId)
             .then(response => {
                 dispatch(setUserProfile(response.data))
             });

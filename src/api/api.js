@@ -6,17 +6,31 @@ const instance =  axios.create({
     "API-KEY": "c6b7c803-7f13-40b2-869b-e1613cbb0b62",
     baseURL: 'https://social-network.samuraijs.com/api/1.0/'
 });
+export const profileAPI = {
+    getUSerStatus(userId){
+        return instance.get(`profile/status/${userId}`)
+    },
+    // updateUserStatus(status){
+    //     return instance.put(`profile/status`, {status: status})
+    // },
+    /// видимо instance работает иначе с put, надо разобраться
+    updateUserStatus(status) {
+         return  axios.put(`https://social-network.samuraijs.com/api/1.0/profile/status`, {status: status}, {
+            withCredentials: true,
+            headers: {
+                "API-KEY": "c6b7c803-7f13-40b2-869b-e1613cbb0b62"
+            },
 
+        })
+    },
+    getUserProfile(userId) {
+        return instance.get(`profile/${userId}`)
+    }
+}
 export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 10)  {
         return  instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => { return response.data;
         })
-    },
-    getUSerStatus(userId){
-        return instance.get(`profile/status/${userId}`)
-    },
-    getUserProfile(userId) {
-        return instance.get(`profile/${userId}`)
     },
     isAuth () {
         return  instance.get(`auth/me`)
@@ -41,6 +55,17 @@ export const usersAPI = {
     }
 }
 
+
+export default class User {
+    static signIn({ email, password }) {
+        return axios.post(`https://social-network.samuraijs.com/api/1.0/`, {}, {
+            withCredentials: true,
+            headers: {
+                "API-KEY": "c6b7c803-7f13-40b2-869b-e1613cbb0b62"
+            },
+        }).then((res) => res.body)
+    }
+}
 
 // follow(userId) {
 //     return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
